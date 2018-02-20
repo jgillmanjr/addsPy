@@ -1,5 +1,6 @@
 #Misc. Stuff
 .idea/
+dev.ipynb
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
