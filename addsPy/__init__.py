@@ -61,8 +61,8 @@ class Client:
         # Cut slingload if there's nothing to work on
         if getattr(start_location, location, None) is None:
             if multi_occurs:
-                return []
-            return AddsDict()
+                return None  #[]
+            return None  #AddsDict()
 
         if multi_occurs:
             workingobj = getattr(start_location, location, None)
@@ -77,7 +77,8 @@ class Client:
                 wd.cdata = cdata_type(o.cdata)
 
             for a in attributes:
-                wd[a] = o[a]
+                attr, typr = a
+                wd[attr] = typr(o[attr])
 
             for k, v in children.items():
                 wd[k] = self._process_element(start_location=o, definition=v)
