@@ -9,7 +9,7 @@ import requests
 import untangle
 import addsPy.endpoints
 
-BASEURI = 'http://aviationweather.gov/adds/dataserver_current/httpparam'
+BASEURI = 'https://aviationweather.gov/adds/dataserver_current/httpparam'
 
 ENDPOINTS = {
     'metar': {
@@ -32,13 +32,15 @@ class Client:
     def __init__(self, datasource, **kwargs):
         self.datasource = ENDPOINTS[datasource]['dataSource']  # This will feed the dataSource parameter
         self.map = ENDPOINTS[datasource]['mapdef']  # The mapping to be applied
+        self._robj = None
         self._wxobj = None
         self.wxdata = {}
-        self.request_params = {
+        self.required_params = {
             'dataSource': self.datasource,
             'requestType': 'retrieve',
             'format': 'xml'
         }
+        self.request_params = {}
 
         for k, v in kwargs.items():
             self.request_params[k] = v
@@ -90,12 +92,12 @@ class Client:
         return sendback
 
     def request(self):
-        r = requests.get(
+        self._robj = requests.get(
             url=BASEURI,
-            params=self.request_params,
+            params={**self.required_params, **self.request_params},
         )
 
-        self._wxobj = untangle.parse(r.text).response
+        self._wxobj = untangle.parse(self._robj.text).response
 
         for k, v in self.map.items():
             self.wxdata[k] = self._process_element(start_location=self._wxobj, definition=v)
