@@ -54,15 +54,15 @@ class Client:
         # Break out the defintion values
         location = definition['location']
         cdata_type = definition['cdata_type']
-        attributes = definition['attributes']
+        attributes = definition['attributes'] if definition['attributes'] is not None else []
         multi_occurs = definition['multi_occurs']
-        children = definition['children']
+        children = definition['children'] if definition['children'] is not None else {}
 
         # Cut slingload if there's nothing to work on
         if getattr(start_location, location, None) is None:
             if multi_occurs:
-                return None  #[]
-            return None  #AddsDict()
+                return None  # []
+            return None  # AddsDict()
 
         if multi_occurs:
             workingobj = getattr(start_location, location, None)
