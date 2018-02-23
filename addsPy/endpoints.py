@@ -3,6 +3,17 @@ untangle -> dict Mapping
 
 Implicit start from the response attribute of the parsed untangle object
 """
+import pendulum
+from datetime import datetime
+
+
+# Type processing functions
+
+def utc_timestamp(timestamp):
+    return pendulum.parse(timestamp)
+
+# End functions
+
 
 metar = {
     'request_index': {
@@ -15,14 +26,18 @@ metar = {
     'data_source': {
         'location': 'data_source',
         'cdata_type': None,
-        'attributes': ['name'],
+        'attributes': [
+            ('name', str),
+        ],
         'multi_occurs': False,
         'children': {},
     },
     'request': {
         'location': 'request',
         'cdata_type': None,
-        'attributes': ['type'],
+        'attributes': [
+            ('type', str),
+        ],
         'multi_occurs': False,
         'children': {},
     },
@@ -66,7 +81,9 @@ metar = {
     'data': {
         'location': 'data',
         'cdata_type': None,
-        'attributes': ['num_results'],
+        'attributes': [
+            ('num_results', int),
+        ],
         'multi_occurs': False,
         'children': {
             'metar': {
@@ -89,10 +106,20 @@ metar = {
                         'multi_occurs': False,
                         'children': {}
                     },
+                    'observation_time': {
+                        'location': 'observation_time',
+                        'cdata_type': utc_timestamp,
+                        'attributes': [],
+                        'multi_occurs': False,
+                        'children': {}
+                    },
                     'sky_condition': {
                         'location': 'sky_condition',
                         'cdata_type': None,
-                        'attributes': ['sky_cover', 'cloud_base_ft_agl'],
+                        'attributes': [
+                            ('sky_cover', str),
+                            ('cloud_base_ft_agl', int),
+                        ],
                         'multi_occurs': True,
                         'children': {}
                     },
