@@ -78,7 +78,8 @@ class Client:
 
             for a in attributes:
                 attr, typr = a
-                wd[attr] = typr(o[attr])
+                if o[attr] is not None:
+                    wd[attr] = typr(o[attr])
 
             for k, v in children.items():
                 wd[k] = self._process_element(start_location=o, definition=v)
