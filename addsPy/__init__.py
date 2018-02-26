@@ -63,16 +63,21 @@ class Client:
         children = definition['children'] if definition['children'] is not None else {}
 
         # Cut slingload if there's nothing to work on
-        if getattr(start_location, location, None) is None:
+        current_element = getattr(start_location, location, None)
+
+        if current_element is None:
             if multi_occurs:
-                return None  # []
-            return None  # AddsDict()
+                return []
+            return AddsDict()
 
         if multi_occurs:
-            workingobj = getattr(start_location, location, None)
+            if type(current_element) is list:
+                workingobj = current_element
+            else:
+                workingobj = [current_element]
             sendback = []
         else:
-            workingobj = [getattr(start_location, location, None)]
+            workingobj = [current_element]
 
         for o in workingobj:
             wd = AddsDict()
