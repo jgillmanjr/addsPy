@@ -1,7 +1,7 @@
 """
 untangle -> dict Mapping
 
-Implicit start from the response attribute of the parsed untangle object
+Implied start from the response attribute of the parsed untangle object
 """
 import pendulum
 from decimal import Decimal
@@ -48,7 +48,7 @@ metar = {
         'children': None,
     },
     'errors': {
-        'location': 'request',
+        'location': 'errors',
         'cdata_type': None,
         'attributes': None,
         'multi_occurs': False,
@@ -63,7 +63,7 @@ metar = {
         },
     },
     'warnings': {
-        'location': 'request',
+        'location': 'warnings',
         'cdata_type': None,
         'attributes': None,
         'multi_occurs': False,
@@ -92,7 +92,7 @@ metar = {
         ],
         'multi_occurs': False,
         'children': {
-            'metar': {
+            'METAR': {
                 'location': 'METAR',
                 'cdata_type': None,
                 'attributes': None,
@@ -364,6 +364,273 @@ metar = {
                     'elevation_m': {
                         'location': 'elevation_m',
                         'cdata_type': Decimal,
+                        'attributes': None,
+                        'multi_occurs': False,
+                        'children': None
+                    },
+                },
+            },
+        },
+    },
+}
+
+pirep = {
+    'request_index': {
+        'location': 'request_index',
+        'cdata_type': int,
+        'attributes': None,
+        'multi_occurs': False,
+        'children': None
+    },
+    'data_source': {
+        'location': 'data_source',
+        'cdata_type': None,
+        'attributes': [
+            ('name', str),
+        ],
+        'multi_occurs': False,
+        'children': None,
+    },
+    'request': {
+        'location': 'request',
+        'cdata_type': None,
+        'attributes': [
+            ('type', str),
+        ],
+        'multi_occurs': False,
+        'children': None,
+    },
+    'errors': {
+        'location': 'errors',
+        'cdata_type': None,
+        'attributes': None,
+        'multi_occurs': False,
+        'children': {
+            'error': {
+                'location': 'error',
+                'cdata_type': str,
+                'attributes': None,
+                'multi_occurs': True,
+                'children': None
+            },
+        },
+    },
+    'warnings': {
+        'location': 'warnings',
+        'cdata_type': None,
+        'attributes': None,
+        'multi_occurs': False,
+        'children': {
+            'warning': {
+                'location': 'warning',
+                'cdata_type': str,
+                'attributes': None,
+                'multi_occurs': True,
+                'children': None
+            },
+        },
+    },
+    'time_taken_ms': {
+        'location': 'time_taken_ms',
+        'cdata_type': int,
+        'attributes': None,
+        'multi_occurs': False,
+        'children': None,
+    },
+    'data': {
+        'location': 'data',
+        'cdata_type': None,
+        'attributes': [
+            ('num_results', int),
+        ],
+        'multi_occurs': False,
+        'children': {
+            'AircraftReport': {
+                'location': 'AircraftReport',
+                'cdata_type': None,
+                'attributes': None,
+                'multi_occurs': True,
+                'children': {
+                    'receipt_time': {
+                        'location': 'receipt_time',
+                        'cdata_type': utc_timestamp,
+                        'attributes': None,
+                        'multi_occurs': False,
+                        'children': None
+                    },
+                    'observation_time': {
+                        'location': 'observation_time',
+                        'cdata_type': utc_timestamp,
+                        'attributes': None,
+                        'multi_occurs': False,
+                        'children': None
+                    },
+                    'quality_control_flags': {
+                        'location': 'quality_control_flags',
+                        'cdata_type': None,
+                        'attributes': None,
+                        'multi_occurs': False,
+                        'children': {
+                            'mid_point_assumed': {
+                                'location': 'mid_point_assumed',
+                                'cdata_type': out_bool,
+                                'attributes': None,
+                                'multi_occurs': False,
+                                'children': None
+                            },
+                            'no_time_stamp': {
+                                'location': 'no_time_stamp',
+                                'cdata_type': out_bool,
+                                'attributes': None,
+                                'multi_occurs': False,
+                                'children': None
+                            },
+                            'flt_lvl_range': {
+                                'location': 'flt_lvl_range',
+                                'cdata_type': out_bool,
+                                'attributes': None,
+                                'multi_occurs': False,
+                                'children': None
+                            },
+                            'above_ground_level_indicated': {
+                                'location': 'above_ground_level_indicated',
+                                'cdata_type': out_bool,
+                                'attributes': None,
+                                'multi_occurs': False,
+                                'children': None
+                            },
+                            'no_flt_lvl': {
+                                'location': 'no_flt_lvl',
+                                'cdata_type': out_bool,
+                                'attributes': None,
+                                'multi_occurs': False,
+                                'children': None
+                            },
+                            'bad_location': {
+                                'location': 'bad_location',
+                                'cdata_type': out_bool,
+                                'attributes': None,
+                                'multi_occurs': False,
+                                'children': None
+                            },
+                        },
+                    },
+                    'aircraft_ref': {
+                        'location': 'aircraft_ref',
+                        'cdata_type': str,
+                        'attributes': None,
+                        'multi_occurs': False,
+                        'children': None
+                    },
+                    'latitude': {
+                        'location': 'latitude',
+                        'cdata_type': Decimal,
+                        'attributes': None,
+                        'multi_occurs': False,
+                        'children': None
+                    },
+                    'longitude': {
+                        'location': 'longitude',
+                        'cdata_type': Decimal,
+                        'attributes': None,
+                        'multi_occurs': False,
+                        'children': None
+                    },
+                    'altitude_ft_msl': {
+                        'location': 'altitude_ft_msl',
+                        'cdata_type': int,
+                        'attributes': None,
+                        'multi_occurs': False,
+                        'children': None
+                    },
+                    'sky_condition': {
+                        'location': 'sky_condition',
+                        'cdata_type': None,
+                        'attributes': [
+                            ('sky_cover', str),
+                            ('cloud_base_ft_msl', int),
+                            ('cloud_top_ft_msl', int),
+                        ],
+                        'multi_occurs': True,
+                        'children': None
+                    },
+                    'turbulence_condition': {
+                        'location': 'turbulence_condition',
+                        'cdata_type': None,
+                        'attributes': [
+                            ('turbulence_type', str),
+                            ('turbulence_intensity', str),
+                            ('turbulence_base_ft_msl', int),
+                            ('turbulence_top_ft_msl', int),
+                            ('turbulence_freq', str),
+                        ],
+                        'multi_occurs': True,
+                        'children': None
+                    },
+                    'icing_condition': {
+                        'location': 'icing_condition',
+                        'cdata_type': None,
+                        'attributes': [
+                            ('icing_type', str),
+                            ('icing_intensity', str),
+                            ('icing_base_ft_msl', int),
+                            ('icing_top_ft_msl', int),
+                        ],
+                        'multi_occurs': True,
+                        'children': None
+                    },
+                    'visibility_statute_mi': {
+                        'location': 'visibility_statute_mi',
+                        'cdata_type': int,
+                        'attributes': None,
+                        'multi_occurs': False,
+                        'children': None
+                    },
+                    'wx_string': {
+                        'location': 'wx_string',
+                        'cdata_type': str,
+                        'attributes': None,
+                        'multi_occurs': False,
+                        'children': None
+                    },
+                    'temp_c': {
+                        'location': 'temp_c',
+                        'cdata_type': Decimal,
+                        'attributes': None,
+                        'multi_occurs': False,
+                        'children': None
+                    },
+                    'wind_dir_degrees': {
+                        'location': 'wind_dir_degrees',
+                        'cdata_type': int,
+                        'attributes': None,
+                        'multi_occurs': False,
+                        'children': None
+                    },
+                    'wind_speed_kt': {
+                        'location': 'wind_speed_kt',
+                        'cdata_type': int,
+                        'attributes': None,
+                        'multi_occurs': False,
+                        'children': None
+                    },
+                    'vert_gust_kt': {
+                        'location': 'vert_gust_kt',
+                        'cdata_type': int,
+                        'attributes': None,
+                        'multi_occurs': False,
+                        'children': None
+                    },
+                    'report_type': {
+                        'location': 'report_type',
+                        'cdata_type': str,
+                        'attributes': None,
+                        'multi_occurs': False,
+                        'children': None
+                    },
+                    'raw_text': {
+                        'location': 'raw_text',
+                        'cdata_type': str,
                         'attributes': None,
                         'multi_occurs': False,
                         'children': None

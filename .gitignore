@@ -1,6 +1,7 @@
 #Misc. Stuff
 .idea/
 dev.ipynb
+dev_notebooks/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

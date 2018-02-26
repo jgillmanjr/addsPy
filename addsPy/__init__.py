@@ -15,6 +15,10 @@ ENDPOINTS = {
     'metar': {
         'dataSource': 'metars',
         'mapdef': endpoints.metar
+    },
+    'aircraftreports': {
+        'dataSource': 'aircraftreports',
+        'mapdef': endpoints.pirep
     }
 }
 
