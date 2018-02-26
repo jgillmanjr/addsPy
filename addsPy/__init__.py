@@ -68,6 +68,8 @@ class Client:
         if current_element is None:
             if multi_occurs:
                 return []
+            if attributes == [] and children == {}:  # Basically just expecting cdata and nothing else
+                return None
             return AddsDict()
 
         if multi_occurs:
