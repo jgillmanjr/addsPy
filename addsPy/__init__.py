@@ -19,6 +19,10 @@ ENDPOINTS = {
     'aircraftreports': {
         'dataSource': 'aircraftreports',
         'mapdef': endpoints.pirep
+    },
+    'taf': {
+        'dataSource': 'tafs',
+        'mapdef': endpoints.taf
     }
 }
 

@@ -640,3 +640,338 @@ pirep = {
         },
     },
 }
+
+taf = {
+    'request_index': {
+        'location': 'request_index',
+        'cdata_type': int,
+        'attributes': None,
+        'multi_occurs': False,
+        'children': None
+    },
+    'data_source': {
+        'location': 'data_source',
+        'cdata_type': None,
+        'attributes': [
+            ('name', str),
+        ],
+        'multi_occurs': False,
+        'children': None,
+    },
+    'request': {
+        'location': 'request',
+        'cdata_type': None,
+        'attributes': [
+            ('type', str),
+        ],
+        'multi_occurs': False,
+        'children': None,
+    },
+    'errors': {
+        'location': 'errors',
+        'cdata_type': None,
+        'attributes': None,
+        'multi_occurs': False,
+        'children': {
+            'error': {
+                'location': 'error',
+                'cdata_type': str,
+                'attributes': None,
+                'multi_occurs': True,
+                'children': None
+            },
+        },
+    },
+    'warnings': {
+        'location': 'warnings',
+        'cdata_type': None,
+        'attributes': None,
+        'multi_occurs': False,
+        'children': {
+            'warning': {
+                'location': 'warning',
+                'cdata_type': str,
+                'attributes': None,
+                'multi_occurs': True,
+                'children': None
+            },
+        },
+    },
+    'time_taken_ms': {
+        'location': 'time_taken_ms',
+        'cdata_type': int,
+        'attributes': None,
+        'multi_occurs': False,
+        'children': None,
+    },
+    'data': {
+        'location': 'data',
+        'cdata_type': None,
+        'attributes': [
+            ('num_results', int),
+        ],
+        'multi_occurs': False,
+        'children': {
+            'TAF': {
+                'location': 'TAF',
+                'cdata_type': None,
+                'attributes': None,
+                'multi_occurs': True,
+                'children': {
+                    'raw_text': {
+                        'location': 'raw_text',
+                        'cdata_type': str,
+                        'attributes': None,
+                        'multi_occurs': False,
+                        'children': None
+                    },
+                    'station_id': {
+                        'location': 'station_id',
+                        'cdata_type': str,
+                        'attributes': None,
+                        'multi_occurs': False,
+                        'children': None
+                    },
+                    'issue_time': {
+                        'location': 'issue_time',
+                        'cdata_type': utc_timestamp,
+                        'attributes': None,
+                        'multi_occurs': False,
+                        'children': None
+                    },
+                    'bulletin_time': {
+                        'location': 'bulletin_time',
+                        'cdata_type': utc_timestamp,
+                        'attributes': None,
+                        'multi_occurs': False,
+                        'children': None
+                    },
+                    'valid_time_from': {
+                        'location': 'valid_time_from',
+                        'cdata_type': utc_timestamp,
+                        'attributes': None,
+                        'multi_occurs': False,
+                        'children': None
+                    },
+                    'valid_time_to': {
+                        'location': 'valid_time_to',
+                        'cdata_type': utc_timestamp,
+                        'attributes': None,
+                        'multi_occurs': False,
+                        'children': None
+                    },
+                    'latitude': {
+                        'location': 'latitude',
+                        'cdata_type': Decimal,
+                        'attributes': None,
+                        'multi_occurs': False,
+                        'children': None
+                    },
+                    'longitude': {
+                        'location': 'longitude',
+                        'cdata_type': Decimal,
+                        'attributes': None,
+                        'multi_occurs': False,
+                        'children': None
+                    },
+                    'elevation_m': {
+                        'location': 'elevation_m',
+                        'cdata_type': Decimal,
+                        'attributes': None,
+                        'multi_occurs': False,
+                        'children': None
+                    },
+                    'forecast': {
+                        'location': 'forecast',
+                        'cdata_type': None,
+                        'attributes': None,
+                        'multi_occurs': True,
+                        'children': {
+                            'fcst_time_from': {
+                                'location': 'fcst_time_from',
+                                'cdata_type': utc_timestamp,
+                                'attributes': None,
+                                'multi_occurs': False,
+                                'children': None
+                            },
+                            'fcst_time_to': {
+                                'location': 'fcst_time_to',
+                                'cdata_type': utc_timestamp,
+                                'attributes': None,
+                                'multi_occurs': False,
+                                'children': None
+                            },
+                            'change_indicator': {
+                                'location': 'change_indicator',
+                                'cdata_type': str,
+                                'attributes': None,
+                                'multi_occurs': False,
+                                'children': None
+                            },
+                            'time_becoming': {
+                                'location': 'time_becoming',
+                                'cdata_type': utc_timestamp,
+                                'attributes': None,
+                                'multi_occurs': False,
+                                'children': None
+                            },
+                            'probability': {
+                                'location': 'probability',
+                                'cdata_type': int,
+                                'attributes': None,
+                                'multi_occurs': False,
+                                'children': None
+                            },
+                            'wind_dir_degrees': {
+                                'location': 'wind_dir_degrees',
+                                'cdata_type': int,
+                                'attributes': None,
+                                'multi_occurs': False,
+                                'children': None
+                            },
+                            'wind_speed_kt': {
+                                'location': 'wind_speed_kt',
+                                'cdata_type': int,
+                                'attributes': None,
+                                'multi_occurs': False,
+                                'children': None
+                            },
+                            'wind_gust_kt': {
+                                'location': 'wind_gust_kt',
+                                'cdata_type': int,
+                                'attributes': None,
+                                'multi_occurs': False,
+                                'children': None
+                            },
+                            'wind_shear_hgt_ft_agl': {
+                                'location': 'wind_shear_hgt_ft_agl',
+                                'cdata_type': int,
+                                'attributes': None,
+                                'multi_occurs': False,
+                                'children': None
+                            },
+                            'wind_shear_dir_degrees': {
+                                'location': 'wind_shear_dir_degrees',
+                                'cdata_type': int,
+                                'attributes': None,
+                                'multi_occurs': False,
+                                'children': None
+                            },
+                            'wind_shear_speed_kt': {
+                                'location': 'wind_shear_speed_kt',
+                                'cdata_type': int,
+                                'attributes': None,
+                                'multi_occurs': False,
+                                'children': None
+                            },
+                            'visibility_statute_mi': {
+                                'location': 'visibility_statute_mi',
+                                'cdata_type': Decimal,
+                                'attributes': None,
+                                'multi_occurs': False,
+                                'children': None
+                            },
+                            'altim_in_hg': {
+                                'location': 'altim_in_hg',
+                                'cdata_type': Decimal,
+                                'attributes': None,
+                                'multi_occurs': False,
+                                'children': None
+                            },
+                            'vert_vis_ft': {
+                                'location': 'vert_vis_ft',
+                                'cdata_type': int,
+                                'attributes': None,
+                                'multi_occurs': False,
+                                'children': None
+                            },
+                            'wx_string': {
+                                'location': 'wx_string',
+                                'cdata_type': str,
+                                'attributes': None,
+                                'multi_occurs': False,
+                                'children': None
+                            },
+                            'not_decoded': {
+                                'location': 'not_decoded',
+                                'cdata_type': str,
+                                'attributes': None,
+                                'multi_occurs': False,
+                                'children': None
+                            },
+                            'sky_condition': {
+                                'location': 'sky_condition',
+                                'cdata_type': None,
+                                'attributes': [
+                                    ('sky_cover', str),
+                                    ('cloud_base_ft_agl', int),
+                                    ('cloud_type', str),
+                                ],
+                                'multi_occurs': True,
+                                'children': None
+                            },
+                            'turbulence_condition': {
+                                'location': 'turbulence_condition',
+                                'cdata_type': None,
+                                'attributes': [
+                                    ('turbulence_intensity', str),
+                                    ('turbulence_min_alt_ft_agl', int),
+                                    ('turbulence_max_alt_ft_agl', int),
+                                ],
+                                'multi_occurs': True,
+                                'children': None
+                            },
+                            'icing_condition': {
+                                'location': 'icing_condition',
+                                'cdata_type': None,
+                                'attributes': [
+                                    ('icing_intensity', str),
+                                    ('icing_min_alt_ft_agl', int),
+                                    ('icing_max_alt_ft_agl', int),
+                                ],
+                                'multi_occurs': True,
+                                'children': None
+                            },
+                            'temperature': {
+                                'location': 'temperature',
+                                'cdata_type': None,
+                                'attributes': None,
+                                'multi_occurs': True,
+                                'children': {
+                                    'valid_time': {
+                                        'location': 'valid_time',
+                                        'cdata_type': str,
+                                        'attributes': None,
+                                        'multi_occurs': False,
+                                        'children': None
+                                    },
+                                    'sfc_temp_c': {
+                                        'location': 'sfc_temp_c',
+                                        'cdata_type': Decimal,
+                                        'attributes': None,
+                                        'multi_occurs': False,
+                                        'children': None
+                                    },
+                                    'max_temp_c': {
+                                        'location': 'max_temp_c',
+                                        'cdata_type': Decimal,
+                                        'attributes': None,
+                                        'multi_occurs': False,
+                                        'children': None
+                                    },
+                                    'min_temp_c': {
+                                        'location': 'min_temp_c',
+                                        'cdata_type': Decimal,
+                                        'attributes': None,
+                                        'multi_occurs': False,
+                                        'children': None
+                                    },
+                                }
+                            },
+                        }
+                    },
+                },
+            },
+        },
+    },
+}
