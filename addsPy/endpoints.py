@@ -808,6 +808,119 @@ taf = {
                                 'multi_occurs': False,
                                 'children': None
                             },
+                            'time_becoming': {
+                                'location': 'time_becoming',
+                                'cdata_type': utc_timestamp,
+                                'attributes': None,
+                                'multi_occurs': False,
+                                'children': None
+                            },
+                            'probability': {
+                                'location': 'probability',
+                                'cdata_type': int,
+                                'attributes': None,
+                                'multi_occurs': False,
+                                'children': None
+                            },
+                            'wind_dir_degrees': {
+                                'location': 'wind_dir_degrees',
+                                'cdata_type': int,
+                                'attributes': None,
+                                'multi_occurs': False,
+                                'children': None
+                            },
+                            'wind_speed_kt': {
+                                'location': 'wind_speed_kt',
+                                'cdata_type': int,
+                                'attributes': None,
+                                'multi_occurs': False,
+                                'children': None
+                            },
+                            'wind_gust_kt': {
+                                'location': 'wind_gust_kt',
+                                'cdata_type': int,
+                                'attributes': None,
+                                'multi_occurs': False,
+                                'children': None
+                            },
+                            'wind_shear_hgt_ft_agl': {
+                                'location': 'wind_shear_hgt_ft_agl',
+                                'cdata_type': int,
+                                'attributes': None,
+                                'multi_occurs': False,
+                                'children': None
+                            },
+                            'wind_shear_dir_degrees': {
+                                'location': 'wind_shear_dir_degrees',
+                                'cdata_type': int,
+                                'attributes': None,
+                                'multi_occurs': False,
+                                'children': None
+                            },
+                            'wind_shear_speed_kt': {
+                                'location': 'wind_shear_speed_kt',
+                                'cdata_type': int,
+                                'attributes': None,
+                                'multi_occurs': False,
+                                'children': None
+                            },
+                            'visibility_statute_mi': {
+                                'location': 'visibility_statute_mi',
+                                'cdata_type': Decimal,
+                                'attributes': None,
+                                'multi_occurs': False,
+                                'children': None
+                            },
+                            'altim_in_hg': {
+                                'location': 'altim_in_hg',
+                                'cdata_type': Decimal,
+                                'attributes': None,
+                                'multi_occurs': False,
+                                'children': None
+                            },
+                            'vert_vis_ft': {
+                                'location': 'vert_vis_ft',
+                                'cdata_type': int,
+                                'attributes': None,
+                                'multi_occurs': False,
+                                'children': None
+                            },
+                            'wx_string': {
+                                'location': 'wx_string',
+                                'cdata_type': str,
+                                'attributes': None,
+                                'multi_occurs': False,
+                                'children': None
+                            },
+                            'not_decoded': {
+                                'location': 'not_decoded',
+                                'cdata_type': str,
+                                'attributes': None,
+                                'multi_occurs': False,
+                                'children': None
+                            },
+                            'sky_condition': {
+                                'location': 'sky_condition',
+                                'cdata_type': None,
+                                'attributes': [
+                                    ('sky_cover', str),
+                                    ('cloud_base_ft_agl', int),
+                                    ('cloud_type', str),
+                                ],
+                                'multi_occurs': True,
+                                'children': None
+                            },
+                            'turbulence_condition': {
+                                'location': 'turbulence_condition',
+                                'cdata_type': None,
+                                'attributes': [
+                                    ('turbulence_intensity', str),
+                                    ('turbulence_min_alt_ft_agl', int),
+                                    ('turbulence_max_alt_ft_agl', int),
+                                ],
+                                'multi_occurs': True,
+                                'children': None
+                            },
                         }
                     },
                     'wind_dir_degrees': {
