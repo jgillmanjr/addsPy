@@ -21,7 +21,7 @@ def out_bool(booltxt):
 # End functions
 
 
-metar = {
+metars = {
     'request_index': {
         'location': 'request_index',
         'cdata_type': int,
@@ -374,7 +374,7 @@ metar = {
     },
 }
 
-pirep = {
+pireps = {
     'request_index': {
         'location': 'request_index',
         'cdata_type': int,
@@ -641,7 +641,7 @@ pirep = {
     },
 }
 
-taf = {
+tafs = {
     'request_index': {
         'location': 'request_index',
         'cdata_type': int,
@@ -969,6 +969,183 @@ taf = {
                                 }
                             },
                         }
+                    },
+                },
+            },
+        },
+    },
+}
+
+airsigmets = {
+    'request_index': {
+        'location': 'request_index',
+        'cdata_type': int,
+        'attributes': None,
+        'multi_occurs': False,
+        'children': None
+    },
+    'data_source': {
+        'location': 'data_source',
+        'cdata_type': None,
+        'attributes': [
+            ('name', str),
+        ],
+        'multi_occurs': False,
+        'children': None,
+    },
+    'request': {
+        'location': 'request',
+        'cdata_type': None,
+        'attributes': [
+            ('type', str),
+        ],
+        'multi_occurs': False,
+        'children': None,
+    },
+    'errors': {
+        'location': 'errors',
+        'cdata_type': None,
+        'attributes': None,
+        'multi_occurs': False,
+        'children': {
+            'error': {
+                'location': 'error',
+                'cdata_type': str,
+                'attributes': None,
+                'multi_occurs': True,
+                'children': None
+            },
+        },
+    },
+    'warnings': {
+        'location': 'warnings',
+        'cdata_type': None,
+        'attributes': None,
+        'multi_occurs': False,
+        'children': {
+            'warning': {
+                'location': 'warning',
+                'cdata_type': str,
+                'attributes': None,
+                'multi_occurs': True,
+                'children': None
+            },
+        },
+    },
+    'time_taken_ms': {
+        'location': 'time_taken_ms',
+        'cdata_type': int,
+        'attributes': None,
+        'multi_occurs': False,
+        'children': None,
+    },
+    'data': {
+        'location': 'data',
+        'cdata_type': None,
+        'attributes': [
+            ('num_results', int),
+        ],
+        'multi_occurs': False,
+        'children': {
+            'AIRSIGMENT': {
+                'location': 'AIRSIGMET',
+                'cdata_type': None,
+                'attributes': None,
+                'multi_occurs': True,
+                'children': {
+                    'raw_text': {
+                        'location': 'raw_text',
+                        'cdata_type': str,
+                        'attributes': None,
+                        'multi_occurs': False,
+                        'children': None
+                    },
+                    'valid_time_from': {
+                        'location': 'valid_time_from',
+                        'cdata_type': utc_timestamp,
+                        'attributes': None,
+                        'multi_occurs': False,
+                        'children': None
+                    },
+                    'valid_time_to': {
+                        'location': 'valid_time_to',
+                        'cdata_type': utc_timestamp,
+                        'attributes': None,
+                        'multi_occurs': False,
+                        'children': None
+                    },
+                    'altitude': {
+                        'location': 'altitude',
+                        'cdata_type': None,
+                        'attributes': [
+                            ('min_ft_msl', int),
+                            ('max_ft_msl', int),
+                        ],
+                        'multi_occurs': False,
+                        'children': None
+                    },
+                    'movement_dir_degrees': {
+                        'location': 'movement_dir_degrees',
+                        'cdata_type': int,
+                        'attributes': None,
+                        'multi_occurs': False,
+                        'children': None
+                    },
+                    'movement_speed_kt': {
+                        'location': 'movement_speed_kt',
+                        'cdata_type': int,
+                        'attributes': None,
+                        'multi_occurs': False,
+                        'children': None
+                    },
+                    'hazard': {
+                        'location': 'hazard',
+                        'cdata_type': None,
+                        'attributes': [
+                            ('type', str),
+                            ('severity', str),
+                        ],
+                        'multi_occurs': False,
+                        'children': None
+                    },
+                    'airsigment_type': {
+                        'location': 'airsigment_type',
+                        'cdata_type': str,
+                        'attributes': None,
+                        'multi_occurs': False,
+                        'children': None
+                    },
+                    'area': {
+                        'location': 'area',
+                        'cdata_type': None,
+                        'attributes': [
+                            ('num_points', int)
+                        ],
+                        'multi_occurs': True,
+                        'children': {
+                            'point': {
+                                'location': 'point',
+                                'cdata_type': None,
+                                'attributes': None,
+                                'multi_occurs': True,
+                                'children': {
+                                    'longitude': {
+                                        'location': 'longitude',
+                                        'cdata_type': Decimal,
+                                        'attributes': None,
+                                        'multi_occurs': False,
+                                        'children': None
+                                    },
+                                    'latitude': {
+                                        'location': 'latitude',
+                                        'cdata_type': Decimal,
+                                        'attributes': None,
+                                        'multi_occurs': False,
+                                        'children': None
+                                    },
+                                },
+                            },
+                        },
                     },
                 },
             },

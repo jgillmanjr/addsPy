@@ -12,17 +12,21 @@ import addsPy.endpoints
 BASEURI = 'https://aviationweather.gov/adds/dataserver_current/httpparam'
 
 ENDPOINTS = {
-    'metar': {
+    'metars': {
         'dataSource': 'metars',
-        'mapdef': endpoints.metar
+        'mapdef': endpoints.metars
     },
     'aircraftreports': {
         'dataSource': 'aircraftreports',
-        'mapdef': endpoints.pirep
+        'mapdef': endpoints.pireps
     },
-    'taf': {
+    'tafs': {
         'dataSource': 'tafs',
-        'mapdef': endpoints.taf
+        'mapdef': endpoints.tafs
+    },
+    'airsigmets': {
+        'dataSource': 'airsigmets',
+        'mapdef': endpoints.airsigmets
     }
 }
 
