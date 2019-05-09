@@ -27,7 +27,11 @@ ENDPOINTS = {
     'airsigmets': {
         'dataSource': 'airsigmets',
         'mapdef': endpoints.airsigmets
-    }
+    },
+    'stations': {
+        'dataSource': 'stations',
+        'mapdef': endpoints.stations
+    },
 }
 
 
@@ -69,6 +73,7 @@ class Client:
         attributes = definition['attributes'] if definition['attributes'] is not None else []
         multi_occurs = definition['multi_occurs']
         children = definition['children'] if definition['children'] is not None else {}
+        has_empty_children = definition['has_empty_children'] if 'has_empty_children' in definition else False  # Station types use this. Rare.
 
         # Cut slingload if there's nothing to work on
         current_element = getattr(start_location, location, None)
@@ -79,6 +84,14 @@ class Client:
             if attributes == [] and children == {}:  # Basically just expecting cdata and nothing else
                 return None
             return AddsDict()
+
+        if has_empty_children:
+            sendback = []
+            for k, v in children.items():
+                print(k)
+                if self._process_element(start_location=current_element, definition=v):
+                    sendback.append(k)
+            return sendback
 
         if multi_occurs:
             if type(current_element) is list:
@@ -91,6 +104,9 @@ class Client:
 
         for o in workingobj:
             wd = AddsDict()
+
+            if cdata_type is None and attributes == [] and children == {}:  # We have an empty tag present - Station types use this
+                return True
 
             if cdata_type is not None:
                 wd.cdata = cdata_type(o.cdata)

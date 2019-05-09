@@ -1152,3 +1152,200 @@ airsigmets = {
         },
     },
 }
+
+stations = {
+    'request_index': {
+        'location': 'request_index',
+        'cdata_type': int,
+        'attributes': None,
+        'multi_occurs': False,
+        'children': None
+    },
+    'data_source': {
+        'location': 'data_source',
+        'cdata_type': None,
+        'attributes': [
+            ('name', str),
+        ],
+        'multi_occurs': False,
+        'children': None,
+    },
+    'request': {
+        'location': 'request',
+        'cdata_type': None,
+        'attributes': [
+            ('type', str),
+        ],
+        'multi_occurs': False,
+        'children': None,
+    },
+    'errors': {
+        'location': 'errors',
+        'cdata_type': None,
+        'attributes': None,
+        'multi_occurs': False,
+        'children': {
+            'error': {
+                'location': 'error',
+                'cdata_type': str,
+                'attributes': None,
+                'multi_occurs': True,
+                'children': None
+            },
+        },
+    },
+    'warnings': {
+        'location': 'warnings',
+        'cdata_type': None,
+        'attributes': None,
+        'multi_occurs': False,
+        'children': {
+            'warning': {
+                'location': 'warning',
+                'cdata_type': str,
+                'attributes': None,
+                'multi_occurs': True,
+                'children': None
+            },
+        },
+    },
+    'time_taken_ms': {
+        'location': 'time_taken_ms',
+        'cdata_type': int,
+        'attributes': None,
+        'multi_occurs': False,
+        'children': None,
+    },
+    'data': {
+        'location': 'data',
+        'cdata_type': None,
+        'attributes': [
+            ('num_results', int),
+        ],
+        'multi_occurs': False,
+        'children': {
+            'Station': {
+                'location': 'Station',
+                'cdata_type': None,
+                'attributes': None,
+                'multi_occurs': True,
+                'children': {
+                    'station_id': {
+                        'location': 'station_id',
+                        'cdata_type': str,
+                        'attributes': None,
+                        'multi_occurs': False,
+                        'children': None
+                    },
+                    'wmo_id': {
+                        'location': 'wmo_id',
+                        'cdata_type': str,
+                        'attributes': None,
+                        'multi_occurs': False,
+                        'children': None
+                    },
+                    'latitude': {
+                        'location': 'latitude',
+                        'cdata_type': Decimal,
+                        'attributes': None,
+                        'multi_occurs': False,
+                        'children': None
+                    },
+                    'longitude': {
+                        'location': 'longitude',
+                        'cdata_type': Decimal,
+                        'attributes': None,
+                        'multi_occurs': False,
+                        'children': None
+                    },
+                    'elevation_m': {
+                        'location': 'elevation_m',
+                        'cdata_type': Decimal,
+                        'attributes': None,
+                        'multi_occurs': False,
+                        'children': None
+                    },
+                    'site': {
+                        'location': 'site',
+                        'cdata_type': str,
+                        'attributes': None,
+                        'multi_occurs': False,
+                        'children': None
+                    },
+                    'state': {
+                        'location': 'state',
+                        'cdata_type': str,
+                        'attributes': None,
+                        'multi_occurs': False,
+                        'children': None
+                    },
+                    'country': {
+                        'location': 'country',
+                        'cdata_type': str,
+                        'attributes': None,
+                        'multi_occurs': False,
+                        'children': None
+                    },
+                    'site_type': {
+                        'location': 'site_type',
+                        'cdata_type': None,
+                        'attributes': None,
+                        'multi_occurs': False,
+                        'has_empty_children': True,
+                        'children': {
+                            'METAR': {
+                                'location': 'METAR',
+                                'cdata_type': None,
+                                'attributes': None,
+                                'multi_occurs': False,
+                                'children': None
+                            },
+                            'rawinsonde': {
+                                'location': 'rawinsonde',
+                                'cdata_type': None,
+                                'attributes': None,
+                                'multi_occurs': False,
+                                'children': None
+                            },
+                            'TAF': {
+                                'location': 'TAF',
+                                'cdata_type': None,
+                                'attributes': None,
+                                'multi_occurs': False,
+                                'children': None
+                            },
+                            'NEXRAD': {
+                                'location': 'NEXRAD',
+                                'cdata_type': None,
+                                'attributes': None,
+                                'multi_occurs': False,
+                                'children': None
+                            },
+                            'wind_profiler': {
+                                'location': 'wind_profiler',
+                                'cdata_type': None,
+                                'attributes': None,
+                                'multi_occurs': False,
+                                'children': None
+                            },
+                            'WFO_office': {
+                                'location': 'WFO_office',
+                                'cdata_type': None,
+                                'attributes': None,
+                                'multi_occurs': False,
+                                'children': None
+                            },
+                            'SYNOPS': {
+                                'location': 'SYNOPS',
+                                'cdata_type': None,
+                                'attributes': None,
+                                'multi_occurs': False,
+                                'children': None
+                            },
+                        }
+                    },
+                },
+            },
+        },
+    },
+}
