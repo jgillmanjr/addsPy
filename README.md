@@ -9,8 +9,12 @@ Currently, the library only supports METARs and Aircraft/Pilot Reports.
 
 The current data source map is as so:
 
-* METARS: `metar`
+* METARs: `metars`
 * Aircraft / Pilot Reports: `aircraftreports`
+* TAFs: `tafs`
+* AIRMETS / SIGMETS: `airsigmets`
+* Stations: `stations`
+
 
 ## Usage
 
@@ -24,7 +28,7 @@ req_params = {
     'hoursBeforeNow': 1
 }
 
-ozw_wx = Client(datasource='metar', **req_params)
+ozw_wx = Client(datasource='metars', **req_params)
 ozw_wx.request()
 ```
 
@@ -37,3 +41,7 @@ So for example, if you wanted to iterate through the text of the METARs:
 for metar in ozw_wx.wxdata['data']['METAR']:
     print('{station}: {raw}'.format(station=metar['station_id'], raw=metar['raw_text']))
 ```
+
+## References
+
+To see the various request parameters and output examples see [here](https://aviationweather.gov/dataserver).
