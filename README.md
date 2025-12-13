@@ -1,6 +1,10 @@
 addsPy
 ======
 
+# THIS REPO IS DEPRECATED
+This project referenced a version of the old data server which has been deprecated. I will be working on a new library
+---
+
 This is just a little client library I've been poking at to get data from the Aviation Digital Data Service [(ADDS)](https://www.aviationweather.gov/adds)
 [text data server](https://aviationweather.gov/dataserver).
 
